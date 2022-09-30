@@ -1,4 +1,5 @@
 import datetime
+import math
 
 Reloj = datetime.datetime.now()
 ValorMin = 150
@@ -71,16 +72,16 @@ while opc != 2301: #Primer Ciclo
                                 if LatOrLong % 2 == 1:
                                     print("Latitud")
                                     if LatposOrLatNeg % 2 == 1:
-                                        Latitud = Latitud - 1
+                                        Latitud = Latitud - 0.1
                                     if LatposOrLatNeg % 2 == 0:
-                                        Latitud = Latitud + 1
+                                        Latitud = Latitud + 0.1
                                     
                                 if LatOrLong % 2 == 0:
                                     print("Longitud")
                                     if LongposOrLongNeg % 2 == 0:
-                                        Longitud = Longitud + 1
+                                        Longitud = Longitud + 0.1
                                     if LongposOrLongNeg % 2 == 1:
-                                        Longitud = Longitud - 1
+                                        Longitud = Longitud - 0.1
                                     
                             if a == 2: #OPCION 2 CUARTO CICLO
                                 ve = ve * 0
@@ -133,7 +134,7 @@ while opc != 2301: #Primer Ciclo
                         print("Latitud inicio: ",LatitudInc," ","Longitud inicio: ",LongitudInc,)
                         print("hasta")
                         print("Latitud final: ",Latitud," ","Longitud final: ",Longitud)
-                        print("El total a pagar es de: $", ValorMin*((Latitud - LatitudInc)+(Longitud - LongitudInc)))
+                        print("El total a pagar es de: $", ValorMin*(math.sqrt(Latitud - LatitudInc)+(Longitud - LongitudInc)))
                         f = (input("Terminar viaje si/no: "))
                         if f == "si":
                             opc = 145
